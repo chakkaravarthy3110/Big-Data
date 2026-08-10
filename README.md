@@ -153,6 +153,62 @@ The program generates:
 ## License
 
 This project is intended for educational and academic purposes.
+Data Processing
+1. Load Dataset
+
+The dataset is loaded using Pandas:
+
+df = pd.read_csv("samplesuperstore.csv")
+2. Convert Dates
+
+The Order Date and Ship Date columns are converted into datetime format:
+
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df['Ship Date'] = pd.to_datetime(df['Ship Date'])
+3. Calculate Delivery Days
+
+Delivery time is calculated using:
+
+df['Delivery Days'] = (
+    df['Ship Date'] - df['Order Date']
+).dt.days
+📊 Data Analysis
+Sales by Category
+
+The total sales for each category are calculated using:
+
+category_sales = df.groupby('Category')['Sales'].sum()
+
+A bar chart is used to compare total sales between categories.
+
+Profit by Category
+
+A bar plot is created to compare the average profit across categories.
+
+Sales Distribution
+
+A bar plot and histogram are used to understand the distribution of sales.
+
+Profit Distribution
+
+Box plots are used to identify:
+
+Median profit
+Data distribution
+Variation
+Possible outliers
+Discount vs Profit
+
+A scatter plot is used to study whether increasing discounts have an impact on profitability.
+
+Correlation Analysis
+
+Numerical columns are selected and their correlations are calculated:
+
+numeric_df = df.select_dtypes(include="number")
+corr = numeric_df.corr()
+
+A heatmap is then used to visualize relationships between numerical variables.
 
 
 ## Author
