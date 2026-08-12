@@ -1,216 +1,97 @@
-# Vegetable Dataset Processing using MapReduce (Python)
-
-## Project Overview
-
-This project implements a **MapReduce-based Vegetable Dataset Processing
-System** using Python. It includes Mapper, Partitioner, Sorter, Reducer,
-and a Master program to process a vegetable dataset.
-
-## Project Structure
-
-    VegetableDatasetProject/
-    ├── VegetableDataset.csv
-    ├── VegetableMapper.py
-    ├── VegetablePartitioner.py
-    ├── VegetableSorter.py
-    ├── VegetableReducer.py
-    ├── VegetableMaster.py
-    └── README.md
-
-## Technologies
-
--   Python 3.x
--   VS Code
--   CSV Dataset
-
-## Workflow
-
-1.  Mapper
-2.  Partitioner
-3.  Sorter
-4.  Reducer
-
-## Run
-
-``` bash
-cd "C:\Big Data\week 2"
-python VegetableMaster.py VegetableDataset.csv
-```
-
-## Features
-
--   Python MapReduce implementation
--   Modular code
--   Vegetable dataset processing
--   Easy to understand
-
-
-# Superstore Sales Data Analysis
-
-## Project Overview
-
-This project performs exploratory data analysis (EDA) on the **Sample Superstore** dataset using Python. It analyzes sales data, identifies missing values, visualizes business insights, and prepares the dataset for further machine learning tasks.
-
-## Features
-
-* Loads the Superstore dataset
-* Displays the first five records
-* Shows dataset information
-* Checks for missing values
-* Calculates average sales using NumPy and SciPy
-* Groups sales by product category
-* Creates a bar chart of category-wise sales
-* Creates a scatter plot of Sales vs Profit
-* Splits the dataset into training and testing sets
-
-## Technologies Used
-
-* Python 3
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Scikit-learn
-* SciPy
-* Google Colab
-
-## Project Structure
-
-```
+Superstore Sales Data Analysis
+ Project Overview
+This project performs Exploratory Data Analysis (EDA) on a Superstore sales dataset using Python. The analysis focuses on understanding sales performance, product categories, customer/order information, delivery time, discounts, and profit.
+The project is implemented using a Jupyter Notebook/Google Colab environment.
+ Objectives
+•	Load and explore the Superstore dataset.
+•	Understand the structure and characteristics of the data.
+•	Check for missing values.
+•	Convert order and shipping dates into proper datetime format.
+•	Calculate delivery time in days.
+•	Analyze sales by product category.
+•	Visualize sales using charts.
+•	Examine important business-related variables such as Sales, Quantity, Discount, and Profit.
+ Technologies Used
+•	Python
+•	Pandas – Data loading, cleaning, manipulation, and analysis
+•	NumPy – Numerical operations
+•	Matplotlib – Data visualization
+•	Seaborn – Statistical/data visualization
+•	Google Colab / Jupyter Notebook
+The notebook imports Pandas, NumPy, Matplotlib, and Seaborn.
+ Dataset
+The project uses a Superstore sales dataset containing 10,194 records and 21 original columns. The dataset includes information such as:
+•	Row ID
+•	Order ID
+•	Order Date
+•	Ship Date
+•	Ship Mode
+•	Customer ID
+•	Customer Name
+•	Segment
+•	Country/Region
+•	City
+•	State/Province
+•	Postal Code
+•	Region
+•	Product ID
+•	Category
+•	Sub-Category
+•	Product Name
+•	Sales
+•	Quantity
+•	Discount
+•	Profit
+The notebook additionally creates a Delivery Days column, making the analyzed dataset 22 columns wide.
+ Data Processing
+The notebook converts Order Date and Ship Date into datetime format and calculates delivery duration using:
+df['Delivery Days'] = (df['Ship Date'] - df['Order Date']).dt.days
+This allows delivery performance to be analyzed from the order and shipping dates.
+ Data Quality Check
+Missing values are checked using:
+df.isnull().sum()
+The notebook output shows 0 missing values across the analyzed columns.
+Sales Analysis
+The project groups sales by product category using:
+category_sales = df.groupby('Category')['Sales'].sum()
+The resulting total sales are:
+Category	Total Sales
+Furniture	754,747.7613
+Office Supplies	731,893.3140
+Technology	839,893.2790
+Technology has the highest total sales among the three categories in the notebook results.
+ Visualization
+A bar chart is created to visualize total sales for each product category:
+category_sales.plot(kind='bar', figsize=(8,5))
+plt.title("Sales by Category")
+plt.ylabel("Total Sales")
+plt.show()
+This provides a simple visual comparison of sales performance across Furniture, Office Supplies, and Technology.
+ Project Structure
 Superstore-Sales-Analysis/
 │
-├── superstore_py.py
+├── Superstore.ipynb
 ├── samplesuperstore - samplesuperstore.csv
-├── README.md
-```
-
-## Dataset
-
-**Dataset Name:** Sample Superstore
-
-The dataset contains information about:
-
-* Orders
-* Customers
-* Products
-* Categories
-* Sales
-* Profit
-* Discounts
-* Regions
-* Shipping Details
-
-## Installation
-
+└── README.md
+▶️ How to Run
+Google Colab
+1.	Open Superstore.ipynb in Google Colab.
+2.	Upload the Superstore CSV dataset.
+3.	Make sure the CSV path in the notebook matches the uploaded file.
+4.	Run the notebook cells from top to bottom.
+5.	View the generated analysis and visualizations.
+Jupyter Notebook
 Install the required libraries:
+pip install pandas numpy matplotlib seaborn
+Then open:
+jupyter notebook Superstore.ipynb
+ Key Features
+•	Dataset exploration
+•	Data type inspection
+•	Missing-value analysis
+•	Date conversion
+•	Delivery-time calculation
+•	Category-wise sales analysis
+•	Sales visualization
+•	Statistical/data exploration
 
-```bash
-pip install pandas numpy matplotlib seaborn scipy scikit-learn
-```
-
-## How to Run
-
-### Google Colab
-
-1. Upload `superstore_py.py`.
-2. Upload `samplesuperstore - samplesuperstore.csv` when prompted.
-3. Run all cells.
-
-### Local System
-
-Place both files in the same folder and run:
-
-```bash
-python superstore_py.py
-```
-
-## Output
-
-The program generates:
-
-* Dataset preview
-* Dataset information
-* Missing value report
-* Average sales
-* Category-wise sales summary
-* Bar chart of Sales by Category
-* Scatter plot of Sales vs Profit
-* Training and testing dataset sizes
-
-## Future Enhancements
-
-* Sales prediction using Machine Learning
-* Interactive dashboards with Plotly
-* Customer segmentation
-* Profit forecasting
-* Regional sales analysis
-* Time-series sales trends
-
-## Author
-
-**Chan T**
-
-## License
-
-This project is intended for educational and academic purposes.
-Data Processing
-1. Load Dataset
-
-The dataset is loaded using Pandas:
-
-df = pd.read_csv("samplesuperstore.csv")
-2. Convert Dates
-
-The Order Date and Ship Date columns are converted into datetime format:
-
-df['Order Date'] = pd.to_datetime(df['Order Date'])
-df['Ship Date'] = pd.to_datetime(df['Ship Date'])
-3. Calculate Delivery Days
-
-Delivery time is calculated using:
-
-df['Delivery Days'] = (
-    df['Ship Date'] - df['Order Date']
-).dt.days
-📊 Data Analysis
-Sales by Category
-
-The total sales for each category are calculated using:
-
-category_sales = df.groupby('Category')['Sales'].sum()
-
-A bar chart is used to compare total sales between categories.
-
-Profit by Category
-
-A bar plot is created to compare the average profit across categories.
-
-Sales Distribution
-
-A bar plot and histogram are used to understand the distribution of sales.
-
-Profit Distribution
-
-Box plots are used to identify:
-
-Median profit
-Data distribution
-Variation
-Possible outliers
-Discount vs Profit
-
-A scatter plot is used to study whether increasing discounts have an impact on profitability.
-
-Correlation Analysis
-
-Numerical columns are selected and their correlations are calculated:
-
-numeric_df = df.select_dtypes(include="number")
-corr = numeric_df.corr()
-
-A heatmap is then used to visualize relationships between numerical variables.
-
-
-## Author
-
-Chan T
