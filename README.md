@@ -73,7 +73,7 @@ Superstore-Sales-Analysis/
 ├── Superstore.ipynb
 ├── samplesuperstore - samplesuperstore.csv
 └── README.md
-▶️ How to Run
+▶️How to Run
 Google Colab
 1.	Open Superstore.ipynb in Google Colab.
 2.	Upload the Superstore CSV dataset.
@@ -95,6 +95,6 @@ jupyter notebook Superstore.ipynb
 •	Sales visualization
 •	Statistical/data exploration
 
-![Uploading image.png…]()
+
 
 
