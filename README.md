@@ -95,3 +95,6 @@ jupyter notebook Superstore.ipynb
 •	Sales visualization
 •	Statistical/data exploration
 
+![Uploading image.png…]()
+
+
