@@ -1,4 +1,11 @@
-Superstore Sales Data Analysis
+Google Colab
+1.	Open Superstore.ipynb in Google Colab.
+2.	Upload the Superstore CSV dataset.
+3.	Make sure the CSV path in the notebook matches the uploaded file.
+4.	Run the notebook cells from top to bottom.
+5.	View the generated analysis and visualizations.
+Jupyter Notebook
+Install the required libraries:Superstore Sales Data Analysis
  Project Overview
 This project performs Exploratory Data Analysis (EDA) on a Superstore sales dataset using Python. The analysis focuses on understanding sales performance, product categories, customer/order information, delivery time, discounts, and profit.
 The project is implemented using a Jupyter Notebook/Google Colab environment.
@@ -73,15 +80,6 @@ Superstore-Sales-Analysis/
 ├── Superstore.ipynb
 ├── samplesuperstore - samplesuperstore.csv
 └── README.md
-▶️How to Run
-Google Colab
-1.	Open Superstore.ipynb in Google Colab.
-2.	Upload the Superstore CSV dataset.
-3.	Make sure the CSV path in the notebook matches the uploaded file.
-4.	Run the notebook cells from top to bottom.
-5.	View the generated analysis and visualizations.
-Jupyter Notebook
-Install the required libraries:
 pip install pandas numpy matplotlib seaborn
 Then open:
 jupyter notebook Superstore.ipynb
@@ -94,7 +92,3 @@ jupyter notebook Superstore.ipynb
 •	Category-wise sales analysis
 •	Sales visualization
 •	Statistical/data exploration
-
-
-
-
